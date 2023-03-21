@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useMemo } from "react";
 import {
   DownOutlined,
   SortAscendingOutlined,
@@ -45,13 +45,24 @@ const items: MenuProps["items"] = [
 export const TodoOrderByDropDown: React.FC = () => {
   const todosFeedQueryOptions = useReactiveVar(todosFeedQueryVar);
 
+  const sortByOpt = useMemo(() => {
+    const orderBy = todosFeedQueryOptions.orderBy;
+    if (orderBy && Array.isArray(orderBy) && orderBy.length) {
+      return Object.entries(orderBy[0])[0].join("-");
+    }
+    return "updatedAt-desc";
+  }, [todosFeedQueryOptions.orderBy]);
+
   const onItemClick = useCallback(
     ({ key }: { key: string }) => {
-      const orderBy = key.split("-") as [string, string];
-      todosFeedQueryVar({
+      const values = key.split("-") as [string, string];
+      const sortBy = Object.fromEntries(new Map([values]));
+      const newOrderByOptions = {
         ...todosFeedQueryOptions,
-        orderBy: [Object.fromEntries(new Map([orderBy]))],
-      });
+        orderBy: [sortBy],
+      };
+      window.localStorage.setItem("todosFeedSortBy", JSON.stringify(sortBy));
+      todosFeedQueryVar(newOrderByOptions);
     },
     [todosFeedQueryOptions]
   );
@@ -62,7 +73,7 @@ export const TodoOrderByDropDown: React.FC = () => {
         items,
         onClick: onItemClick,
         selectable: true,
-        defaultSelectedKeys: ["updatedAt-desc"],
+        defaultSelectedKeys: [sortByOpt],
       }}
     >
       <Button>

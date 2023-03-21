@@ -14,10 +14,17 @@ export const currentUserVar: ReactiveVar<User | null> = makeVar<User | null>(
 export const OrderByAsc = "asc" as Sort;
 export const OrderByDesc = "desc" as Sort;
 
+const todosFeedSortByFromStorage =
+  window.localStorage.getItem("todosFeedSortBy");
+
 const todosFeedQueryVarInitialValue: TodosQueryVariables = {
   skip: 0,
   take: PER_PAGE,
-  orderBy: [{ updatedAt: OrderByDesc }],
+  orderBy: [
+    todosFeedSortByFromStorage
+      ? JSON.parse(todosFeedSortByFromStorage)
+      : { updatedAt: OrderByDesc },
+  ],
 };
 
 export const todosFeedQueryVar: ReactiveVar<TodosQueryVariables> =
