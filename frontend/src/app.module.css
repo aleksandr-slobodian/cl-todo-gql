@@ -1,0 +1,26 @@
+:root {
+  --bg-color: #7dbcea;
+  --bg-text-color: #fff;
+}
+
+
+.header{
+  text-align: center;
+  color: var(--bg-text-color);
+  line-height: 64px;
+  background-color: var(--bg-color);
+}
+
+.footer {
+  text-align: center;
+  color: var(--bg-text-color);
+  background-color: var(--bg-color);
+}
+
+.content{
+  padding: 20px;
+  width: 100%;
+  max-width: 800px;
+  align-self: center;
+}
+

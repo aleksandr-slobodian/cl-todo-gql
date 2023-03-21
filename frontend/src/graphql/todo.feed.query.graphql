@@ -1,0 +1,16 @@
+query Todos(
+  $filter: String
+  $take: Int
+  $skip: Int
+  $orderBy: [TodoOrderByInput!]
+) {
+  feed(filter: $filter, take: $take, skip: $skip, orderBy: $orderBy) {
+    todos {
+      id
+      title
+      updatedAt
+      isDone
+    }
+    count
+  }
+}

@@ -1,0 +1,9 @@
+mutation AddTodo($title: String!) {
+  addTodo(title: $title) {
+    id
+    title
+    isDone
+    createdAt
+    userId
+  }
+}

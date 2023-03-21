@@ -1,0 +1,6 @@
+mutation DeleteTodo($todoId: Int!) {
+  deleteTodo(todoId: $todoId) {
+    id
+    title
+  }
+}

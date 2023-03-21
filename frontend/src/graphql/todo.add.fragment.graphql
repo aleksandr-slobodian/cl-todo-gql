@@ -1,0 +1,7 @@
+fragment NewTodo on Todo {
+  id
+  title
+  createdAt
+  isDone
+  userId
+}

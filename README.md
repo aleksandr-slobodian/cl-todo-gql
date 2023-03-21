@@ -1,6 +1,6 @@
 # Todo App
 
-ReactJS App (Typescript) with GraphQL API (Apollo-Server, Nexus and Prisma, Sqlite).
+ReactJS App (Typescript, Ant Design) with GraphQL API (Apollo-Server, Nexus and Prisma, Sqlite).
 
 ### Installation
 
