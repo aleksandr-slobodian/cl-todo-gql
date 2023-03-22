@@ -31,13 +31,13 @@ const items: MenuProps["items"] = [
     icon: <SortDescendingOutlined />,
   },
   {
-    key: "isDone-desc",
-    label: "Done first",
+    key: "isDone-asc",
+    label: "Not done first",
     icon: <SortAscendingOutlined />,
   },
   {
-    key: "isDone-asc",
-    label: "Not done first",
+    key: "isDone-desc",
+    label: "Done first",
     icon: <SortDescendingOutlined />,
   },
 ];
