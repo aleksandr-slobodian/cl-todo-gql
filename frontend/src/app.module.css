@@ -5,10 +5,20 @@
 
 
 .header{
-  text-align: center;
+  display: flex;
+  gap: 20px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   color: var(--bg-text-color);
   line-height: 64px;
   background-color: var(--bg-color);
+}
+
+.appName{
+  font-weight: bold;
+  color: var(--bg-text-color);
+  white-space: nowrap;
 }
 
 .footer {

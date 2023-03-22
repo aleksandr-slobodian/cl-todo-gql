@@ -4,7 +4,7 @@ export const typePolicies: TypePolicies = {
   Query: {
     fields: {
       feed: {
-        keyArgs: ["orderBy"],
+        keyArgs: ["orderBy", "filter"],
         merge(existing, incoming, { args, mergeObjects }) {
           if (!existing) {
             return incoming;
